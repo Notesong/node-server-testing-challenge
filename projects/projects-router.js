@@ -1,5 +1,5 @@
 const express = require("express");
-const Projects = require("projects");
+const Projects = require("./projects-model");
 
 const router = express.Router();
 
@@ -31,3 +31,5 @@ router.post("/", async (req, res, next) => {
     next(err);
   }
 });
+
+module.exports = router;

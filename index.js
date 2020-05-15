@@ -1,19 +1,17 @@
 const express = require("express");
 const cors = require("cors");
-
-const projectRouter = require("./projects/projects-router");
+const projectsRouter = require("./projects/projects-router");
 
 const server = express();
-port = process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 server.use(cors());
 server.use(express.json());
 
-server.use("/projects", projectRouter);
-
+server.use("/projects", projectsRouter);
 server.get("/", (req, res) => {
   res.json({
-    message: "Welcome to the Projects API",
+    message: "Welcome to our Projects API",
   });
 });
 
@@ -26,7 +24,7 @@ server.use((err, req, res, next) => {
 
 if (!module.parent) {
   server.listen(port, () => {
-    console.log(`Running on http://localhost:${port}`);
+    console.log(`Running at http://localhost:${port}`);
   });
 }
 
